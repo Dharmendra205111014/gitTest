@@ -1,0 +1,141 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: Verdana,
+	Geneva,
+	Tahoma,
+	sans-serif;
+	background: #80ff68;
+}
+
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
+	width: 100%;
+	/* border: 2px dotted gray; */
+}
+
+.bird-animation {
+	position: relative;
+	animation: bounce 0.3s infinite alternate,
+	example 5s infinite linear;
+}
+
+.bird {
+	height: 275px;
+	width: 214px;
+	border: 1px solid #007bb2;
+	border-top-right-radius: 23%;
+	border-bottom-right-radius: 81%;
+	border-top-left-radius: 74%;
+	border-bottom-left-radius: 0;
+	position: relative;
+	transform: rotate(32deg);
+	background: #007bb2;
+}
+
+.bird::before {
+    content: " ";
+    height: 111px;
+    width: 150px;
+    border-top-right-radius: 33%;
+    border-bottom-right-radius: 79%;
+    border-top-left-radius: 82%;
+    border-bottom-left-radius: 0;
+    position: absolute;
+    transform: rotate(0deg);
+    background: #001eb2;
+    top: 47%;
+	left: -19%;
+	animation: fly 0.1s infinite alternate;
+}
+
+.bird::after {
+	content: " ";
+	/* border: 1px solid; */
+	position: absolute;
+	right: -74px;
+	margin-top: -1px;
+	width: 0;
+	height: 0;
+	border-top: 13px solid transparent;
+	border-bottom: 30px solid transparent;
+	border-left: 84px solid yellow;
+	transform: rotate(-20deg);
+}
+
+.bird-eye {
+	position: absolute;
+	border: 2px solid whitesmoke;
+	padding: 1px;
+	border-radius: 50%;
+	height: 20px;
+	width: 20px;
+	line-height: 20px;
+	color: black;
+	right: 21px;
+	top: 31px;
+	text-align: right;
+	font-size: 26px;
+}
+
+@keyframes bounce {
+	from {
+		transform: translateY(0px);
+	}
+
+	to {
+		transform: translateY(-30px);;
+	}
+}
+
+@-webkit-keyframes bounce {
+	from {
+		transform: translateY(0px);
+	}
+
+	to {
+		transform: translateY(-30px);
+	}
+}
+
+@-webkit-keyframes example {
+	0% {
+		left: 0px;
+		top: 0px;
+	}
+
+	50% {
+		left: 30%;
+		top: 0px;
+	}
+
+	70% {
+		left: 50%;
+		top: 0px;
+	}
+
+	100% {
+		left: 100%;
+		top: 0px;
+	}
+}
+
+@keyframes example {
+    0%   {left:0px; top:0px;}
+	50%  {left:30%; top:0px;}
+	70%  {left:50%; top:0px;}
+    100% {left:100%; top:0px;}
+}
+
+@keyframes fly {
+	0% {transform: rotate(0deg)}
+	100% {
+		transform: rotate(15deg)
+	}
+}
